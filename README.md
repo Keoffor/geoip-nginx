@@ -3,7 +3,7 @@
 
 <!-- TOC -->
 
-- [Code Challenge Purpose](#code-challenge-purpose)
+- [Code Challenge Purpose: NGINX, Bash/Shell Scripting, and SysAdmin](#code-challenge-purpose-nginx-bashshell-scripting-and-sysadmin)
 - [Evaluation and Judging Criteria](#evaluation-and-judging-criteria)
 - [Project Background](#project-background)
     - [Graviton's Previous Server Build](#gravitons-previous-server-build)
@@ -11,7 +11,8 @@
     - [Required](#required)
     - [Due Date](#due-date)
     - [Optional, Not Required](#optional-not-required)
-- [Pro-tips:](#pro-tips)
+- [Pro-tips: Things to Keep in Mind For this Code Challenge](#pro-tips-things-to-keep-in-mind-for-this-code-challenge)
+- [Pro-Tip: How To Clone a Private Repo](#pro-tip-how-to-clone-a-private-repo)
 
 <!-- /TOC -->
 
@@ -186,7 +187,7 @@ Although not required, you're welcomed to do any or all of the following:
 1. Sending us status emails on how your progress is coming along
 
 
-# Pro-tips:
+# Pro-tips: Things to Keep in Mind For this Code Challenge
 
 1. As a Consultants and Software Engineers, we see ourselves as teachers and mentors to our clients.  This is the perspective you should take while completing this assignment.  Your scripts should be well commented. They should serve as learning aids for Graviton and Jim
 
@@ -201,3 +202,28 @@ Although not required, you're welcomed to do any or all of the following:
 1. If you need more time to complete the project, please reach out to us and request an extension. Our email is java@treebright.com
 
 1. If you feel we are not a good fit for you and prefer to dropout of the interview process, please send an email to java@treebright.com. Feel free to let us know how we should improve the interview process
+
+# Pro-Tip: How To Clone a Private Repo
+
+Although, forking is not permitted on private repos, you have been given write access to this repo.  You may clone this repo locally and push your updates directly. If you use GitHub from the command line this is how you would clone:
+
+**NB:** The repo is automatically tagged as *origin* when you clone it!
+
+**Cloning via HTTPS (entire repo and all branches):**
+
+`git clone https://YOUR_GITHUB_USERNAME:YOUR_GITHUB_TOKEN@github.com/treebright/candidate-id-2.git`
+
+**Cloning  via SSH (entire repo and all branches):**
+
+`git clone git@github.com:treebright/john-smith.git`
+
+**Cloning a specific branch via HTTPS:**
+
+**NB:** The following command should be on a single line. `SPECIFIC_BRANCH_NAME` and `https://...` are only separated by a single space.
+
+`git clone -b SPECIFIC_BRANCH_NAME https://YOUR_GITHUB_USERNAME:YOUR_GITHUB_TOKEN@github.com/treebright/candidate-id-2.git`
+
+<!-- After cloning create a new branch locally, make your edits, stage, and commit locally. Then push your new local branch to the repo. -->
+
+
+**After cloning:** create a new branch locally (or just overwrite the master branch), make your edits, stage, and commit locally. Then push your changes to this repo. <!-- new local branch to the repo. -->
