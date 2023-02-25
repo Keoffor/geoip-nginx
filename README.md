@@ -61,13 +61,13 @@ To build the server, Jim ran his scripts manually and sequentially. For example:
 * **Script 4:**
     1. Installed and configured Maxmind's GeoIP module for NGINX
     1. Customized `/etc/nginx/nginx.conf` to work with GeoIP
-        * Access to extranet only permitted for 5-eyes countries
+        * Access to extranet only permitted for Five Eyes countries
     1. Customized access log file format within the server block
-        * Test Result: Website is only accessible by 5-eyes countries, web logs show detailed geo information on website visitors 
+        * Test Result: Website is only accessible by Five Eyes countries, web logs show detailed geo information on website visitors 
 * **Script 5:** Used Let’s Encrypt certbot to install SSL certs, performed renewal dry-run, and further "tuned" `/etc/nginx/nginx.conf` for security and performance
     * Test Result: SSL is working, site is only accessible via SSL
 
-Unfortunately, Jim only saved the scripts on his personal laptop.  In January 31, 2022 he accidentally deleted the development dfolder on his Windows 10 laptop.  Most of  his scripts were permanently lost. 
+Unfortunately, Jim only saved the scripts on his personal laptop.  In January 31, 2022 he accidentally deleted the development folder on his Windows 10 laptop.  Most of  his scripts were permanently lost. 
 
 
 ## Status of Graviton's Current Scripts and NGINX Server Block File
@@ -121,15 +121,15 @@ Specifically, create the needed shell scripts to programmatically do the followi
 1. Install and then use Fail2Ban to block any IP address after it attempts to access an unauthorized file or directory mentioned above 
     * Jail time should be for 48 hours
 
-1. Install Maxmind's GeoIp module and database  
+1. Install Maxmind's GeoIP module and database  
 
     * Programmatically create a cron job to refresh the DB once a month.  
     
     * Whitelist or Blacklist countries:
 
-       * In your bash script, offer the end-user the option to either "Deny ALL Except" and "Allow ALL Except" website visitors based on the following criteria:
+       * In your bash script, offer the end-user the option to either "Deny ALL Except" or "Allow ALL Except" web server visitors based on the following criteria:
 
-	        a. "Deny ALL Except": Use GeoIP to only allow the 5-Eyes countries to access the website
+	        a. "Deny ALL Except": Use GeoIP to only allow the Five Eyes countries to access the website
 
 	        b. "Allow ALL Except": Use GeoIP to allow all countries except China, Russia, North Korea, Iran, Syria, and Belarus 
 
