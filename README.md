@@ -39,7 +39,7 @@ A firm understanding and appreciation of NGINX is required to successfully compl
 
 # Project Background
 
-Your client is a *fictional* company called ***Graviton Sciences Corp***.  They are a [La Jolla, CA](https://www.google.com/search?q=La+Jolla%2C+CA) based materials science start-up.  They research, synthesize, and manufacture novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace, and Satellite Communications (SatCom) industries.
+Your client is a *fictional* company called ***Graviton Sciences Corp***.  They are a [La Jolla, CA](https://www.google.com/search?q=La+Jolla%2C+CA) based materials science start-up.  Graviton researches, synthesizes, and manufactures novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace, and Satellite Communications (SatCom) industries.
 
 Graviton has 5 customers which include SpaceX, NRG, Inmarsat, Nasa's Jet Propulsion Laboratory (JPL), and Sandia National Labs.  Given the sensitive nature of their work, Graviton no longer maintains a public facing website.
 
@@ -140,11 +140,11 @@ Specifically, create the needed shell scripts to programmatically do the followi
 
 1. Update default NGINX config file `/etc/nginx/nginx.conf` to work with the GeoIP module. Also: 
 
-   * [Mozilla](https://ssl-config.mozilla.org) and [DigitalOcean](https://nginxconfig.io) have templates for creating a security-oriented `nginx.conf` files. Choose and/or customize the best one to use. Additionally:
+   * [Mozilla](https://ssl-config.mozilla.org) and [DigitalOcean](https://nginxconfig.io) have templates for creating a security-oriented `nginx.conf` file. Choose and/or customize the best one. Additionally:
    
    * Be sure to import any custom modules and configurations you created above
 
-   * Feel free to use tips from other online tutorials and references
+   * Feel free to use tips from other online tutorials and references to build off Mozilla's or Digital Ocean's template
 
 
 ## Required
