@@ -155,7 +155,7 @@ Specifically, create the needed shell scripts to programmatically do the followi
     * Use non-cryptic variable names
     * Use comments liberally, but wisely, to explain what each section of your scripts do
 
-1. Be sure to use `echo`s (or similar directives) to show your end-user what is happening while the script is running
+1. Be sure to use `echo` (or similar directives) to show your end-user what is happening while the script is running
 
 1. Modularize (via importable, custom config files) the custom NGINX features and directives you add.  For example, you script can create a separate "zone file" for rate limiting.  Then import this file into the `location` portion of the server block file
 
