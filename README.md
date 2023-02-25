@@ -7,6 +7,7 @@
 - [Evaluation and Judging Criteria](#evaluation-and-judging-criteria)
 - [Project Background](#project-background)
     - [Graviton's Previous Server Build](#gravitons-previous-server-build)
+    - [Status of Graviton's Current Scripts and NGINX Server Block File](#status-of-gravitons-current-scripts-and-nginx-server-block-file)
 - [Code Challenge: Your Assignment](#code-challenge-your-assignment)
     - [Required](#required)
     - [Due Date](#due-date)
@@ -49,29 +50,32 @@ In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested,
 ## Graviton's Previous Server Build
 To build the server, Jim ran his scripts manually and sequentially. For example:
 
-* Script 1: Installed Ubuntu 20.04, created admin users, locked down SSH, and configured iptables
+* **Script 1:** Installed Ubuntu 20.04, created admin users, locked down SSH, and configured iptables
     * Test Result: Server is up and running. SSH passwordless login works
     * Ports Open:  random ports for SSH and MySQL 8.0 as well as 80 and 443
-* Script 2: Installed NGINX, PHP 7.4, and configured server blocks  
+* **Script 2:** Installed NGINX, PHP 7.4, and generated an NGINX server block file for graviton.com
     * Test Result 1: NGINX is up and running. Accessible on port 80
     * Test Result 2: PHP info page successfully renders
 * Script 3: Installed + configured MySQL, and created MySQL database with test data  
     * Test Result: MySQL up and Running. Is accessible on a random port via SSH tunneling using MySQL Workbench 
-* Script 4: 
+* **Script 4:**
     1. Installed and configured Maxmind's GeoIP module for NGINX
     1. Customized `/etc/nginx/nginx.conf` to work with GeoIP
         * Access to extranet only permitted for 5-eyes countries
     1. Customized access log file format within the server block
         * Test Result: Website is only accessible by 5-eyes countries, web logs show detailed geo information on website visitors 
-* Script 5: Used Let’s Encrypt certbot to install SSL certs, performed renewal dry-run, and further "tuned" `/etc/nginx/nginx.conf` for security and performance
+* **Script 5:** Used Let’s Encrypt certbot to install SSL certs, performed renewal dry-run, and further "tuned" `/etc/nginx/nginx.conf` for security and performance
     * Test Result: SSL is working, site is only accessible via SSL
 
 Unfortunately, Jim only saved the scripts on his personal laptop.  In January 31, 2022 he accidentally deleted the development dfolder on his Windows 10 laptop.  Most of  his scripts were permanently lost. 
 
-By the end of 2022, Jim has since managed to recreate scripts 1 through 3, as highlighted above. These scripts programmatically install and configure Ubuntu **22.04**, SSH, admin users, iptables, MySQL 8, and PHP **8.1**.
+
+## Status of Graviton's Current Scripts and NGINX Server Block File
+
+By the end of 2022, Jim has since managed to recreate scripts 1 through 3. These scripts programmatically install and configure Ubuntu **22.04**, SSH, admin users, iptables, MySQL 8, and PHP **8.1**.
  
 
- This contents of his `/etc/nginx/sites-available/graviton.com` server block file from Script 2:
+Here's the contents of the `/etc/nginx/sites-available/graviton.com` server block generated from Script 2:
 
  ```
 server {
