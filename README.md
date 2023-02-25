@@ -213,21 +213,20 @@ Although, forking is not permitted on private repos, you have been given write a
 
 **NB:** The repo is automatically tagged as *origin* when you clone it!
 
-**Cloning via HTTPS (entire repo and all branches):**
+**Option 1: Cloning via HTTPS (entire repo and all branches):**
 
-`git clone https://YOUR_GITHUB_USERNAME:YOUR_GITHUB_TOKEN@github.com/treebright/candidate-id-2.git`
+`git clone https://YOUR_GITHUB_USERNAME:YOUR_GITHUB_TOKEN@github.com/treebright/REPO_NAME.git`
 
-**Cloning  via SSH (entire repo and all branches):**
+**Option 2: Cloning  via SSH (entire repo and all branches):**
 
-`git clone git@github.com:treebright/john-smith.git`
+`git clone git@github.com:treebright/REPO_NAME.git`
 
-**Cloning a specific branch via HTTPS:**
+**Option 3: Cloning a specific branch via HTTPS:**
 
-**NB:** The following command should be on a single line. `SPECIFIC_BRANCH_NAME` and `https://...` are only separated by a single space.
+**NB:** The below command should be on a single line. `SPECIFIC_BRANCH_NAME` and `https://...` are only separated by a single space.
 
-`git clone -b SPECIFIC_BRANCH_NAME https://YOUR_GITHUB_USERNAME:YOUR_GITHUB_TOKEN@github.com/treebright/candidate-id-2.git`
+`git clone -b SPECIFIC_BRANCH_NAME https://YOUR_GITHUB_USERNAME:YOUR_GITHUB_TOKEN@github.com/treebright/REPO_NAME.git`
 
 <!-- After cloning create a new branch locally, make your edits, stage, and commit locally. Then push your new local branch to the repo. -->
-
 
 **After cloning:** create a new branch locally (or just overwrite the master branch), make your edits, stage, and commit locally. Then push your changes to this repo. <!-- new local branch to the repo. -->
