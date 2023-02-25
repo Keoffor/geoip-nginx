@@ -15,12 +15,11 @@
 
 <!-- /TOC -->
 
-# Code Challenge Purpose
+# Code Challenge Purpose: NGINX, Bash/Shell Scripting, and SysAdmin
 
 > As a Consultants and Software Engineers, we see ourselves as teachers and mentors to our clients.  This is the perspective you should take while completing this assignment
 
 In your self-assessment you indicated that you have experience with bash scripting and NGINX. Our Java consulting and dev work may get slow at times &mdash; there may be a lot of down time doing nothing. As such, having additional skills are competitive differentiators during the interview process.
-
 
 The purpose of this code challenge is to assess your skills with respect to bash scripting, researching information, commenting & documenting code as well as email etiquette & communication skills. 
 
@@ -39,9 +38,9 @@ A firm understanding and appreciation of NGINX is required to successfully compl
 
 # Project Background
 
-Your client is a fictional company called Graviton Sciences.  They are a La Jolla, CA based materials science start-up that researches, synthesizes, and manufactures novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace industries, and SatCom.
+Your client is a *fictional* company called ***Graviton Sciences Corp***.  They are a [La Jolla, CA](https://www.google.com/search?q=La+Jolla%2C+CA) based materials science start-up.  They research, synthesize, and manufacture novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace, and Satellite Communications (SatCom) industries.
 
-Graviton has 5 customers which include SpaceX, NRG, Inmarsat, Nasa's JPL, and Sandia National Labs   
+Graviton has 5 customers which include SpaceX, NRG, Inmarsat, Nasa's Jet Propulsion Laboratory (JPL), and Sandia National Labs.  Given the sensitive nature of their work, Graviton no longer maintains a public facing website.
 
 In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested, and deployed a proof-of-concept for Graviton's [extranet](https://www.lumapps.com/modern-intranet/difference-intranet-vs-extranet/).  The extranet was built on the LEMP (Linux, NGINX, MySQL, and PHP) stack. It was hosted in-house, at the company's headquarters in La Jolla. Its purpose was to manage secure communication amongst Graviton's remote employees and customers. 
 
@@ -49,29 +48,29 @@ In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested,
 ## Graviton's Previous Server Build
 To build the server, Jim ran his scripts manually and sequentially. For example:
 
-* Script 1: installed Ubuntu 20.04, created admin users, locked down SSH, and configured iptables
+* Script 1: Installed Ubuntu 20.04, created admin users, locked down SSH, and configured iptables
     * Test Result: Server is up and running. SSH passowordless login works
     * Ports Open:  random ports for SSH and MySQL 8.0 as well as 80 and 443
-* Script 2: installed NGINX. PHP 7.4 and configured server blocks  
+* Script 2: Installed NGINX, PHP 7.4, and configured server blocks  
     * Test Result 1: NGINX is up and running. Accessible on port 80
-    * Test Result 2: PHP info page succefully renders
-* Script 3: Installed and configured MySQL. Creates dummy database  
+    * Test Result 2: PHP info page successfully renders
+* Script 3: Installed + configured MySQL, and created MySQL database with test data  
     * Test Result: MySQL up and Running. Is accessible on a random port via SSH tunneling using MySQL Workbench 
 * Script 4: 
-    1. Installs and configure's Maxmind's GeoIP module for NGINX
-    1. Customizes `/etc/nginx/nginx.conf` to work with GeoIP
-        * Access to intranet only permitted for 5-eyes countries
-    1. Customizes access log files within the server block
+    1. Installed and configured Maxmind's GeoIP module for NGINX
+    1. Customized `/etc/nginx/nginx.conf` to work with GeoIP
+        * Access to extranet only permitted for 5-eyes countries
+    1. Customized access log file format within the server block
         * Test Result: Website is only accessible by 5-eyes countries, web logs show detailed geo information on website visitors 
-* Script 5: Uses Let’s Encrypt certbot to install SSL certs, performs renewal dry-run, and further "tunes" `/etc/nginx/nginx.conf`for  security and performance
-    * Test Result: SSL is working, site is only accesible via SSL
+* Script 5: Used Let’s Encrypt certbot to install SSL certs, performed renewal dry-run, and further "tuned" `/etc/nginx/nginx.conf` for security and performance
+    * Test Result: SSL is working, site is only accessible via SSL
 
-Unfortunately, Jim only saved the scripts on his personal laptop.  In January 31, 2022 he accidentally deleted the development directly on his laptop.  Most of  his scripts were permanently lost. 
+Unfortunately, Jim only saved the scripts on his personal laptop.  In January 31, 2022 he accidentally deleted the development dfolder on his Windows 10 laptop.  Most of  his scripts were permanently lost. 
 
-By the end of 2022, Jim has since managed to recreate scripts 1 through 3. as highlighted above. These scripts programmatically install and configure Ubuntu **22.04**, SSH, admin users, iptables, MySQL 8, and PHP **8.1**
+By the end of 2022, Jim has since managed to recreate scripts 1 through 3, as highlighted above. These scripts programmatically install and configure Ubuntu **22.04**, SSH, admin users, iptables, MySQL 8, and PHP **8.1**.
  
 
- This contents of his `/etc/nginx/sites-available/graviton.com` server block file:
+ This contents of his `/etc/nginx/sites-available/graviton.com` server block file from Script 2:
 
  ```
 server {
@@ -105,19 +104,19 @@ Your job is to help Graviton and Jim get to the last mile by **further securing 
 
 Specifically, create the needed shell scripts to programmatically do the following:
 
-1. Implement an NGINX rate limiter using some or all of these directives: limit_req_zone, limit_req, and limit_req_status
+1. Implement an NGINX rate limiter using some or all of these directives: `limit_req_zone`, `limit_req`, and `limit_req_status`
 
 1. Block all access to:
-    * "." directories (e.g., .git) except .well-known
+    * "." directories (e.g., .git) ***except*** .well-known
 
     * Hidden files (e.g., any file beginning with ".". Examples include `.htaccess`, `.htpasswd`, `.DS_Store`)
 
-    * A few sensitive extensions specified here: https://docs.nginx.com/nginx-app-protect-waf/configuration-guide/configuration#disallowed-file-types 
+    * The sensitive file extensions specified here: https://docs.nginx.com/nginx-app-protect-waf/configuration-guide/configuration#disallowed-file-types 
 
 1. Install and then use Fail2Ban to block any IP address after it attempts to access an unauthorized file or directory mentioned above 
     * Jail time should be for 48 hours
 
-1. Install Maxmind's GeoIp module and database.  
+1. Install Maxmind's GeoIp module and database  
 
     * Programmatically create a cron job to refresh the DB once a month.  
     
@@ -127,16 +126,16 @@ Specifically, create the needed shell scripts to programmatically do the followi
 
 	        a. "Deny ALL Except": Use GeoIP to only allow the 5-Eyes countries to access the website
 
-	        b. "Allow ALL Except": Use GeoIP to allow all countries except China, Russia, North Korea, and Brazil
+	        b. "Allow ALL Except": Use GeoIP to allow all countries except China, Russia, North Korea, Iran, Syria, and Belarus 
 
 	<!-- **NB:** "Deny ALL Except" and "Allow ALL except" or not technical NGINX terms, but convey the needed functionality in "plain English" -->
 
-1. Create custom access logs to access rich data provided by the GeoIP module. Include visitor's City, State, ZipCode, Country, and ISP
-    * Make sure to place access log withing the custom server block
+1. Create custom access logs that show the rich data provided by the GeoIP module. Include visitor's City, State, ZipCode, Country, and ISP. 
+    * Make sure to also place this access log within the custom server block
 
-1. Create a script to auto install CertBot (LetsEncrypt SSL Certificates). Ask the user to enter their domain name.  Programmatically perform a renewal dry-run to make sure the setup is correct
+1. Create a script to auto install CertBot LetsEncrypt SSL Certificates. Ask the user to enter their domain name.  After install, programmatically perform a renewal dry-run to make sure the setup is correct
 
-    * programmatically update Graviton's existing server-block file to support SSL 
+    * Programmatically update Graviton's existing server-block file to support SSL 
 
 1. Update default NGINX config file `/etc/nginx/nginx.conf` to work with the GeoIP module. Also: 
 
@@ -153,14 +152,14 @@ Specifically, create the needed shell scripts to programmatically do the followi
 
 1. Your scripts should be human readable and self-documenting
     * Use non-cryptic variable names
-    * Use comments liberally, but wisely, to explain what each section of your scripts do.  
+    * Use comments liberally, but wisely, to explain what each section of your scripts do
 
 1. Be sure to use `echo`s (or `print`s) to show your end-user what is happening while the script is running
 
-1. Modularize (via importable, custom config files) the custom NGINX features and directives you add.  For example, use bash to create a zone file for rate limiting.  Then import this file into the `location` portion of the server block file
+1. Modularize (via importable, custom config files) the custom NGINX features and directives you add.  For example, you script can create a separate "zone file" for rate limiting.  Then import this file into the `location` portion of the server block file
 
 1. There are numerous "arm-chair" experts that have their NGINX tuning tips. Many of their suggestions are outdated, questionable, or just outright false because they are based on a single data-point. In your README address the following:
-    * Which "tried and true" suggestions would you recommend Graviton use to better tune NGINX for performance, scalability and reliability?
+    * Which "tried and true" suggestions would you recommend Graviton use to better tune NGINX for performance, scalability, and reliability?
         * Which have you implemented in your modified `nginx.conf` and server block files? 
         * Which tutorials have high quality NGINX performance tuning tips?
     * Which tutorials did you find with questionable or outdated `nginx.conf` performance suggestions?  
@@ -179,25 +178,26 @@ Email us within 24 hours of receiving this code challenge with a reasonable due 
 
 Although not required, you're welcomed to do any or all of the following:
 
-1. Completing the project early
-1. Found typos or something is unclear in this README?  Send us an [email](java@treebright.com) so we may fix it!
-1. Going beyond the minimum of the [Code Challenge: Your Assignment](#code-challenge-your-assignment) or providing suggestion of what else should be done
+1. Complete the project before your deadline
+1. Sending us an [email](java@treebright.com) if you found typos or something that unclear in this README
+1. Going beyond the minimum of the [Code Challenge: Your Assignment](#code-challenge-your-assignment) section
+1. Providing suggestions on what should be added (or removed) from future iterations of the [Code Challenge: Your Assignment](#code-challenge-your-assignment) section
 1. Committing regular Work-In-Progress (WIP) drafts and updates to this repo before the deadline
 1. Sending us status emails on how your progress is coming along
 
 
 # Pro-tips:
 
-1. As a consultants and software engineers, we see ourselves as teachers and mentors to our clients.  This is the perspective you should take while completing this assignment.  Your scripts should be well commented. They should serve as learning aids for Graviton and Jim
+1. As a Consultants and Software Engineers, we see ourselves as teachers and mentors to our clients.  This is the perspective you should take while completing this assignment.  Your scripts should be well commented. They should serve as learning aids for Graviton and Jim
 
-1. You're encouraged to use online tutorials and StackOverlow solutions for best practices and guidance
+1. You are strongly encouraged to use online tutorials and StackOverlow solutions for best practices and guidance
 
-1. We encourage you to email us if you have questions, need for clarifications, or spot any typos in this assignment. We will respond within 24 hours after 5 PM EST.
+1. We encourage you to email us if you have questions, need clarifications, or spot any typos in this assignment. We will respond within 24 hours. Typically after 5 PM EST.
 
-1. You can find up to 4 online tutorials of each code challenge topic. These tutorials will take no more than 15 minutes for an experienced NGINX SysAdmin  to review and understand.
+1. You can find up to 4 online tutorials on each code challenge topic. These tutorials will take about 15 minutes for an experienced NGINX SysAdmin  to review and understand.
 
 1. Jim Dev was able to recover the URLs of the tutorials he used to build his original scripts via his Google "My Activity". Email us at java@treebright.com if you feel this information will be useful to you.  Be sure to pre-pend the subject of any emails with your name (and candidate ID if applicable). For example:  `John Smith - 25: Question on Tuning`
 
 1. If you need more time to complete the project, please reach out to us and request an extension. Our email is java@treebright.com
 
-1. If you feel we are not a good fit for you and prefer to dropout of the interview process, please send an email to java@treebright.com. Feel free to let us know how we can improve the interview process
+1. If you feel we are not a good fit for you and prefer to dropout of the interview process, please send an email to java@treebright.com. Feel free to let us know how we should improve the interview process
