@@ -50,7 +50,7 @@ In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested,
 To build the server, Jim ran his scripts manually and sequentially. For example:
 
 * Script 1: Installed Ubuntu 20.04, created admin users, locked down SSH, and configured iptables
-    * Test Result: Server is up and running. SSH passowordless login works
+    * Test Result: Server is up and running. SSH passwordless login works
     * Ports Open:  random ports for SSH and MySQL 8.0 as well as 80 and 443
 * Script 2: Installed NGINX, PHP 7.4, and configured server blocks  
     * Test Result 1: NGINX is up and running. Accessible on port 80
