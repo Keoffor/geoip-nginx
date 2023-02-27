@@ -42,7 +42,7 @@ A firm understanding and appreciation of NGINX is required to successfully compl
 
 Your client is a *fictional* company called ***Graviton Sciences Corp***.  They are a [La Jolla, CA](https://www.google.com/search?q=La+Jolla%2C+CA) based materials science start-up.  Graviton researches, synthesizes, and manufactures novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace, and Satellite Communications (SatCom) industries.
 
-Graviton has 5 customers which include SpaceX, NRG, Inmarsat, Nasa's Jet Propulsion Laboratory (JPL), and Sandia National Labs.  Given the sensitive nature of their work, Graviton no longer maintains a public facing website.
+Graviton has 5 customers which include [SpaceX](https://www.spacex.com/), [NRG](https://www.nrg.com/), [Inmarsat](https://www.inmarsat.com/en/index.html), [Nasa JPL](https://www.jpl.nasa.gov/), and [Sandia National Labs](https://www.sandia.gov/).  Given the sensitive nature of their work, Graviton no longer maintains a public facing website.
 
 In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested, and deployed a proof-of-concept for Graviton's [extranet](https://www.lumapps.com/modern-intranet/difference-intranet-vs-extranet/).  The extranet was built on the LEMP (Linux, NGINX, MySQL, and PHP) stack. It was hosted in-house, at the company's headquarters in La Jolla. Its purpose was to manage secure communication amongst Graviton's remote employees and customers. 
 
@@ -163,11 +163,13 @@ Specifically, create the needed shell scripts to programmatically do the followi
 
 1. Modularize (via importable, custom config files) the custom NGINX features and directives you add.  For example, you script can create a separate "zone file" for rate limiting.  Then import this file into the `location` portion of the server block file
 
-1. There are numerous "arm-chair" experts that have their NGINX tuning tips. Many of their suggestions are outdated, questionable, or just outright false because they are based on a single data-point. In your README address the following:
+1. Explain your reasoning for the values you chose in your rate limiter 
+
+1. There are numerous "arm-chair" experts that have their NGINX tuning tips. Many of their suggestions are outdated, questionable, or just outright false because they are based on a single data-point. Address the following:
     * Which "tried and true" suggestions would you recommend Graviton use to better tune NGINX for performance, scalability, and reliability?
         * Which have you implemented in your modified `nginx.conf` and server block files? 
         * Which tutorials have high quality NGINX performance tuning tips?
-    * Which tutorials did you find with questionable or outdated `nginx.conf` performance suggestions?  
+    * Should `gzip` compression be turned on or off?  
 
 
 <!--
