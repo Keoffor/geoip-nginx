@@ -23,16 +23,16 @@
 
 In your self-assessment you indicated that you have experience with bash scripting and NGINX. Our Java consulting and dev work may get slow at times &mdash; there may be a lot of down time doing nothing. As such, having additional skills are competitive differentiators during the interview process.
 
-The purpose of this code challenge is to assess your skills with respect to bash scripting, researching information, commenting & documenting code as well as email etiquette & communication skills. 
+This code challenge is "packaged" as a situational case study.  Its purpose is to assess your skills with respect to bash scripting, configuring NGINX, researching information, commenting & documenting code as well as email etiquette & communication skills. 
 
-A firm understanding and appreciation of NGINX is required to successfully complete this challenge.
+A firm understanding and appreciation of NGINX is required to successfully complete this case study and code challenge.
 
 <!-- Being a remote worker has its unique challenger. However, communication as a potential remote employee with our firm. 
  -->
 
 # Evaluation and Judging Criteria
 
-1. Successfully completing all components of the code challenge 
+1. Successfully completing all tasks in the [Code Challenge: Your assignment](https://github.com/treebright/susmitha/blob/master/README.md#code-challenge-your-assignment) section 
 1. Quality and readability of your code (as well as comments)
 1. Insights as shared in your project's README.md and within your code's comments
 1. Overall attention to detail
@@ -44,7 +44,7 @@ Your client is a *fictional* company called ***Graviton Sciences Corp***.  They 
 
 Graviton has 5 customers which include [SpaceX](https://www.spacex.com/), [NRG](https://www.nrg.com/), [Inmarsat](https://www.inmarsat.com/en/index.html), [Nasa JPL](https://www.jpl.nasa.gov/), and [Sandia National Labs](https://www.sandia.gov/).  Given the sensitive nature of their work, Graviton no longer maintains a public facing website.
 
-In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested, and deployed a proof-of-concept for Graviton's [extranet](https://www.lumapps.com/modern-intranet/difference-intranet-vs-extranet/).  The extranet was built on the LEMP (Linux, NGINX, MySQL, and PHP) stack. It was hosted in-house, at the company's headquarters in La Jolla. Its purpose was to manage secure communication amongst Graviton's remote employees and customers. 
+In 2021, their IT guy, Jim Dev, created 5 shell scripts that configured, tested, and deployed a proof-of-concept for Graviton's [extranet](https://www.lumapps.com/modern-intranet/difference-intranet-vs-extranet/#what-is-an-extranet).  The extranet was built on the LEMP (Linux, NGINX, MySQL, and PHP) stack. It was hosted in-house, at the company's headquarters in La Jolla. Its purpose was to manage secure communication amongst Graviton's remote employees and customers. 
 
 
 ## Graviton's Previous Server Build
@@ -68,7 +68,6 @@ To build the server, Jim ran his scripts manually and sequentially. For example:
     * Test Result: SSL is working, site is only accessible via SSL
 
 Unfortunately, Jim only saved the scripts on his personal laptop.  In January 31, 2022 he accidentally deleted the development folder on his Windows 10 laptop.  Most of  his scripts were permanently lost. 
-
 
 ## Status of Graviton's Current Scripts and NGINX Server Block File
 
@@ -161,7 +160,7 @@ Specifically, create the needed shell scripts to programmatically do the followi
 
 1. Be sure to use `echo` (or similar directives) to show your end-user what is happening while the script is running
 
-1. Modularize (via importable, custom config files) the custom NGINX features and directives you add.  For example, you script can create a separate "zone file" for rate limiting.  Then import this file into the `location` portion of the server block file
+1. Modularize (via importable, custom config files) the custom NGINX features and directives you add.  For example, you script can create a separate "zone file" for rate limiting.  Then import it into the `location` portion of the server block file
 
 1. Explain your reasoning for the values you chose in your rate limiter 
 
@@ -169,7 +168,7 @@ Specifically, create the needed shell scripts to programmatically do the followi
     * Which "tried and true" suggestions would you recommend Graviton use to better tune NGINX for performance, scalability, and reliability?
         * Which have you implemented in your modified `nginx.conf` and server block files? 
         * Which tutorials have high quality NGINX performance tuning tips?
-    * Should `gzip` compression be turned on or off?  
+    * Should `gzip` compression be turned on or off? Why?
 
 
 <!--
@@ -185,8 +184,8 @@ Email us within 24 hours of receiving this code challenge with a reasonable due 
 
 Although not required, you're welcomed to do any or all of the following:
 
-1. Complete the project before your deadline
-1. Sending us an [email](java@treebright.com) if you found typos or something that unclear in this README
+1. Completing the project before your deadline
+1. Sending us an [email](java@treebright.com) if you found typos or something that's unclear in this case study 
 1. Going beyond the minimum of the [Code Challenge: Your Assignment](#code-challenge-your-assignment) section
 1. Providing suggestions on what should be added (or removed) from future iterations of the [Code Challenge: Your Assignment](#code-challenge-your-assignment) section
 1. Committing regular Work-In-Progress (WIP) drafts and updates to this repo before the deadline
