@@ -219,7 +219,7 @@ The above should install a file called: `/etc/GeoIP.conf` with missing credentia
 
 ## `ngx_http_geoip2_module`
 
-In 2021, Ubuntu may have started including the updated version of this  module in its official packages. If this is the case, it could be easily installed via `sudo apt install libnginx-mod-http-geoip2`. Dependencies would automatically be installed as well!
+In 2020, Ubuntu may have started including the updated version of this  module in its official packages. If this is the case, it could be easily installed via `sudo apt install libnginx-mod-http-geoip2`. Dependencies would automatically be installed as well!  You may confirm by reading the [Ubuntu package repo changelog](https://ubuntu.pkgs.org/20.04/ubuntu-universe-amd64/libnginx-mod-http-geoip_1.17.10-0ubuntu1_amd64.deb.html).
 
 
 ## Database Updates
