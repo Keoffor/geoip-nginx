@@ -282,4 +282,4 @@ Although, forking is not permitted on private repos, you have been given write a
 
 <!-- After cloning create a new branch locally, make your edits, stage, and commit locally. Then push your new local branch to the repo. -->
 
-**After cloning:** create a new branch locally (or just overwrite the master branch), make your edits, stage, and commit locally. Then push your changes to this repo. <!-- new local branch to the repo. -->
+**After cloning:** create a new branch locally (or just merge into our master branch), make your edits, stage, and commit locally. Then push your changes to this repo. <!-- new local branch to the repo. -->
