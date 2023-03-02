@@ -12,8 +12,11 @@
     - [Required](#required)
     - [Due Date](#due-date)
     - [Optional, Not Required](#optional-not-required)
-- [Pro-tips: Things to Keep in Mind For this Code Challenge](#pro-tips-things-to-keep-in-mind-for-this-code-challenge)
-- [Pro-Tip: How To Clone a Private Repo](#pro-tip-how-to-clone-a-private-repo)
+- [Graviton's GeoIP Setup](#gravitons-geoip-setup)
+    - [ngx_http_geoip2_module](#ngx_http_geoip2_module)
+    - [Database Updates](#database-updates)
+- [Pro Tips 1 - 7: Things to Keep in Mind For this Code Challenge](#pro-tips-1---7-things-to-keep-in-mind-for-this-code-challenge)
+- [Pro Tip 8: How To Clone a Private Repo](#pro-tip-8-how-to-clone-a-private-repo)
 
 <!-- /TOC -->
 
@@ -59,7 +62,7 @@ To build the server, Jim ran his scripts manually and sequentially. For example:
 * Script 3: Installed + configured MySQL, and created MySQL database with test data  
     * Test Result: MySQL up and Running. Is accessible on a random port via SSH tunneling using MySQL Workbench 
 * **Script 4:**
-    1. Installed and configured Maxmind's GeoIP module for NGINX
+    1. Installed and configured MaxMind's GeoIP module for NGINX
     1. Customized `/etc/nginx/nginx.conf` to work with GeoIP
         * Access to extranet only permitted for Five Eyes countries
     1. Customized access log file format within the server block
@@ -120,9 +123,9 @@ Specifically, create the needed shell scripts to programmatically do the followi
 1. Install and then use Fail2Ban to block any IP address after it attempts to access an unauthorized file or directory mentioned above 
     * Jail time should be for 48 hours
 
-1. Install Maxmind's GeoIP module and database  
+1. Install MaxMind's GeoIP module and database. Refer to [Graviton's GeoIP Setup](#gravitons-geoip-setup) for details on Jim's Graviton setup  
 
-    * Programmatically create a cron job to refresh the DB once a month.  
+    * Programmatically create a cron job to refresh the DB at a frequency you deem appropriate 
     
     * Whitelist or Blacklist countries:
 
@@ -191,8 +194,56 @@ Although not required, you're welcomed to do any or all of the following:
 1. Committing regular Work-In-Progress (WIP) drafts and updates to this repo before the deadline
 1. Sending us status emails on how your progress is coming along
 
+# Graviton's GeoIP Setup
 
-# Pro-tips: Things to Keep in Mind For this Code Challenge
+You reached out to Jim by phone and you took the following notes:
+
+Jim registered Graviton to use MaxMind's [GeoLite2 Free Geolocation Data](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data).  Jim read the information in the aforementioned link, **very carefully**. Following those instructions he generated a free [license key](https://www.maxmind.com/en/accounts/current/license-key).
+
+While studying MaxMind's developer docs as well as online tutorials in 2020, Jim had an epiphany. He realized that ***all pre-2019 tutorials and StackOverflow answers might be partially outdated***! In 2019 MaxMind upgraded to GeoIP2 which uses their new open-sourced `mmdb` database format. The "official" module from NGINX could only read the deprecated `dat` format. 
+
+Jim realized he needed to go "beast mode" and head over to GitHub.  In the final analysis, Jim concluded he needed two MaxMind programs and one unofficial NGINX module which had to be built from the source as a dynamic NGINX module:  
+
+1. [libmaxminddb C library](https://github.com/maxmind/libmaxminddb/) for reading MaxMind DB files. 
+1. [GeoIP Update program](https://github.com/maxmind/geoipupdate) to update the GeoLite2 binary databases:
+1. [ngx_http_geoip2_module](https://github.com/leev/ngx_http_geoip2_module) built from the source as a dynamic NGINX module. Several dependencies (e.g., `libpcre3` `libpcre3-dev`, etc) will be need to installed as well
+
+After reading the README.md files of the above repos, Jim found it easiest to proceed by installing MaxMind's Ubuntu PPA. After installing the PPA, he installed the GeoIP Update tool and databases simultaneously via: 
+
+```
+sudo apt update
+sudo apt install geoipupdate libmaxminddb0 libmaxminddb-dev mmdb-bin
+```
+
+The above should install a file called: `/etc/GeoIP.conf`
+
+## `ngx_http_geoip2_module`
+
+In 2021, Ubuntu may have started including the updated version of this  module in its official packages. If this is the case, it could be easily installed via `sudo apt install libnginx-mod-http-geoip2`. Dependencies would automatically be installed as well!
+
+
+## Database Updates
+
+After reading MaxMind's dev docs on the [GeoIP Update](https://dev.maxmind.com/geoip/updating-databases) program, Jim downloaded a copy of his `GeoIp.conf` file an saved it to on the server.  Here are the contents of the auto-generated `GeoIp.conf`:
+
+```
+# GeoIP.conf file for `geoipupdate` program, for versions >= 3.1.1.
+# Used to update GeoIP databases from https://www.maxmind.com.
+# For more information about this config file, visit the docs at
+# https://dev.maxmind.com/geoip/updating-databases?lang=en.
+
+# Numeric `AccountID` is found here: https://www.maxmind.com/en/accounts/current/edit
+AccountID #######
+
+# Alphanumeric `LicenseKey` may be regenerated here: https://www.maxmind.com/en/accounts/current/license-key
+LicenseKey ######
+
+# `EditionIDs` is from your MaxMind account.
+EditionIDs GeoLite2-ASN GeoLite2-City GeoLite2-Country
+
+```
+
+# Pro Tips 1 - 7: Things to Keep in Mind For this Code Challenge
 
 1. As a Consultants and Software Engineers, we see ourselves as teachers and mentors to our clients.  This is the perspective you should take while completing this assignment.  Your scripts should be well commented. They should serve as learning aids for Graviton and Jim
 
@@ -208,7 +259,8 @@ Although not required, you're welcomed to do any or all of the following:
 
 1. If you feel we are not a good fit for you and prefer to dropout of the interview process, please send an email to java@treebright.com. Feel free to let us know how we should improve the interview process
 
-# Pro-Tip: How To Clone a Private Repo
+
+# Pro Tip 8: How To Clone a Private Repo
 
 Although, forking is not permitted on private repos, you have been given write access to this repo.  You may clone this repo locally and push your updates directly. If you use GitHub from the command line this is how you would clone:
 
