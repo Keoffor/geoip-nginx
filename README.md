@@ -215,7 +215,7 @@ sudo apt update
 sudo apt install geoipupdate libmaxminddb0 libmaxminddb-dev mmdb-bin
 ```
 
-The above should install a file called: `/etc/GeoIP.conf`
+The above should install a file called: `/etc/GeoIP.conf` with missing credentials.
 
 ## `ngx_http_geoip2_module`
 
@@ -224,7 +224,7 @@ In 2021, Ubuntu may have started including the updated version of this  module i
 
 ## Database Updates
 
-After reading MaxMind's dev docs on the [GeoIP Update](https://dev.maxmind.com/geoip/updating-databases) program, Jim downloaded a copy of his `GeoIp.conf` file an saved it to on the server.  Here are the contents of the auto-generated `GeoIp.conf`:
+After reading MaxMind's dev docs on the [GeoIP Update](https://dev.maxmind.com/geoip/updating-databases) program, Jim downloaded a copy of his pre-filled `GeoIp.conf` file and saved it to on the server.  Below are the contents of the pre-filled `GeoIp.conf` (license key and account ID have been obfuscated):
 
 ```
 # GeoIP.conf file for `geoipupdate` program, for versions >= 3.1.1.
