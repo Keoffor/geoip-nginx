@@ -2,15 +2,15 @@
 # Use GeoIP to restricts access against specifc country ips
 **Source:** [Maxime Durand blog post](https://medium.com/@maxime.durand.54/add-the-geoip2-module-to-nginx-f0b56e015763), [Tech Expert Tips Blog](https://techexpert.tips/nginx/nginx-blocking-access-from-country/)
 
-Use the link to create GeoLite2 account on [Maxmind's database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)
-install the following dependencies from your package manager as referred [here]( https://github.com/treebright/kenneth#gravitons-geoip-setup)
+Create GeoLite2 account on [Maxmind's database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)
+
+Install the following dependencies from your package manager as referred [here]( https://github.com/treebright/kenneth#gravitons-geoip-setup):
 ```
 sudo add-apt-repository ppa:maxmind/ppa
 sudo apt update
 sudo apt install geoipupdate libmaxminddb0 libmaxminddb-dev mmdb-bin
 ```
 Open file - `/etc/GeoIP.conf` and replace `YOUR_ACCOUNT_ID_HERE` and `YOUR_LICENSE_KEY_HERE`with your own credentials copied from your Maxmind account
-`nano /etc/GeoIP.conf`
 
 Add a cron rule to enable database update `nano /etc/cron.d/geoip2update`
 ```
@@ -21,12 +21,17 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 0 */5 * * * root /usr/bin/geoipupdate
 ```
 Check your nginx version with command  `nginx -v`
+
 change directory to your nginx-version directory `cd /etc/nginx/nginx-VERSION`
+
 configure and make your module `./configure --with-compat --add-dynamic-module=../ngx_http_geoip2_module`
+
 install dependencies if not installed `apt-get install libpcre3 libpcre3-dev`
+
 Copy the GeoIP2 module in the Nginx directory  `mkdir -p /etc/nginx/modules` and `cp -vi objs/ngx_http_geoip2_module.so /etc/nginx/modules/`
 
 This config will restrict the specified country ips access to our server. Edit file -  `/etc/nginx/nginx.conf:`
+
 ```
 http {
        geoip2 /etc/nginx/geoip/geodb2/GeoLite2-Country.mmdb {
@@ -73,6 +78,7 @@ For GeoIp to block countries ip apply below configuration inside server block - 
         }
 ```
 restart nginx and test configuration `systemctl restart nginx`
+
 **Output**
 ```
 HTTP/1.1 403 Forbidden

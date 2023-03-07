@@ -2,6 +2,7 @@
 # Using Fail2Ban to block any IP address after it attempts to access any unauthorized file or directory
 
 **Source:** [Maciej Blog Post](https://iceburn.medium.com/how-to-apply-fail2ban-to-nginx-excess-404-and-403-6b601285df02), [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-protect-an-nginx-server-with-fail2ban-on-ubuntu-20-04)
+
 Apply the following commands to install fail2ban in your server
  ```
  sudo apt update
@@ -16,7 +17,6 @@ sudo cp jail.conf jail.local
 
 Use vim or nano editor to open the file - `jail.local`
 
-`nano jail.local`
 
 Navigate through the script to locate bantime and set it to 48hrs. save changes and restart:
 ```
@@ -48,9 +48,11 @@ ignoreregex =
 ```
 
 Use command to check the details/status being enforced by nginx jail
+
 `sudo fail2ban-client status nginx`
 
 **Output**
+
 ```
 |- Filter
 |  |- Currently failed: 0

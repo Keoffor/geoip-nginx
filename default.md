@@ -2,8 +2,8 @@
 # Rate Limiting
 
 This limits the amount of http requests a user can make in a given period of time.
-**Source:** [Amir Rawadat Blog](https://www.nginx.com/blog/rate-limiting-nginx/)
-**Source:** [Very Academy YouTube post](https://www.youtube.com/watch?v=0fevo6Aa3BA)
+
+**Source:** [Amir Rawadat Blog](https://www.nginx.com/blog/rate-limiting-nginx/), [Very Academy YouTube post](https://www.youtube.com/watch?v=0fevo6Aa3BA)
 
 Apply the configuration in Nginx directory - ` /etc/nginx/sites-avaliable/default` as demonstrated below:
 
@@ -30,10 +30,12 @@ server {
 **Reason:** This will prevent the server from vulnerability and hard for attackers to crack the system within the 5requests
 #per second sesssion. it's relatively impossible for malicious users to break through.
 
-# Blocking access to all files and directories that start with .(dot) expect *.well-knwon*
+# Blocking access to all files and directories that start with .(dot) expect .well-knwon
 
 **Source:** [StackOverflow questions](https://stackoverflow.com/questions/34259548/how-to-disallow-access-to-all-dot-directories-except-well-known)
-Create location block inside server block in nginx directory - ` /etc/nginx/sites-avaliable/default`:
+
+Create location block inside server block in nginx directory - ` /etc/nginx/sites-avaliable/default`
+
 Add configuration to allow *.well-known*:
 ```
         location /\.well-known {
