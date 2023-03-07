@@ -1,6 +1,6 @@
-##
-#Rate Limiting
-##
+
+# Rate Limiting
+
 #This limits the amount of http requests a user can make in a given period of time.
 # Source: https://www.nginx.com/blog/rate-limiting-nginx/
 # Source: https://www.youtube.com/watch?v=0fevo6Aa3BA

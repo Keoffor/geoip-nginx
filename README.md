@@ -43,7 +43,7 @@ A firm understanding and appreciation of NGINX is required to successfully compl
 
 # Project Background
 
-Your client is a *fictional* company called ***Graviton Sciences Corp***.  They are a [La Jolla, CA](https://www.google.com/search?q=La+Jolla%2C+CA) based materials science start-up.  Graviton researches, synthesizes, and manufactures novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace, and Satellite Communications (SatCom) industries.
+Your client is a *fictional* company called ***Graviton Sciences Corp***.  They are a [La Jolla,  CA](https://www.google.com/search?q=La+Jolla%2C+CA) based materials science start-up.  Graviton researches, synthesizes, and manufactures novel metallic alloys, thin films, and dielectrics.  These engineered materials are used in the power generation, aerospace, and Satellite Communications (SatCom) industries.
 
 Graviton has 5 customers which include [SpaceX](https://www.spacex.com/), [NRG](https://www.nrg.com/), [Inmarsat](https://www.inmarsat.com/en/index.html), [Nasa JPL](https://www.jpl.nasa.gov/), and [Sandia National Labs](https://www.sandia.gov/).  Given the sensitive nature of their work, Graviton no longer maintains a public facing website.
 
