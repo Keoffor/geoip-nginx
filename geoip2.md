@@ -28,7 +28,11 @@ configure and make your module `./configure --with-compat --add-dynamic-module=.
 
 install dependencies if not installed `apt-get install libpcre3 libpcre3-dev`
 
-Copy the GeoIP2 module in the Nginx directory  `mkdir -p /etc/nginx/modules` and `cp -vi objs/ngx_http_geoip2_module.so /etc/nginx/modules/`
+Copy the GeoIP2 module into Nginx directory  using command 
+```
+mkdir -p /etc/nginx/modules` 
+cp -vi objs/ngx_http_geoip2_module.so /etc/nginx/modules/
+```
 
 This config will restrict the specified country ips access to our server. Edit file -  `/etc/nginx/nginx.conf:`
 
@@ -70,7 +74,7 @@ http {
         }
  }
  ```
-For GeoIp to block countries ip apply below configuration inside server block - `/etc/nginx/sites-available/default`
+For GeoIp to block countries ip apply configuration inside server block - `/etc/nginx/sites-available/default`
 ```
         location / {
            if ($allowed_country = no) {

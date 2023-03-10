@@ -26,4 +26,6 @@ Add configuration inside server block - ` /etc/nginx/sites-available/default`
   ```
  Check log with command `nano access_log /var/log/nginx/domain1.access.log custom`
 
- output: `34.174.141.251 - - [07/Mar/2023:16:22:40 +0000] "GET / HTTP/1.1" 200 51 "-" "curl/7.68.0" US Dallas Texas 75270 -`
+ **output:** 
+ 
+`34.174.141.251 - - [07/Mar/2023:16:22:40 +0000] "GET / HTTP/1.1" 200 51 "-" "curl/7.68.0" US Dallas Texas 75270 -`
