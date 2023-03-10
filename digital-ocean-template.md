@@ -1,5 +1,7 @@
 # Digital Ocean template for NginxConfig
+
 **Source:** [Digital Ocean Nginx Server Template](https://www.digitalocean.com/community/tools/nginx)
+
 The configuration script provides more secured and stable Nginx Server:
 
 Follow the link above to download and extract the file into nginx directory: `cd /etc/nginx`

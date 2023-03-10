@@ -24,7 +24,7 @@ Add configuration inside server block - ` /etc/nginx/sites-available/default`
                  access_log /var/log/nginx/domain1.access.log main;
   }
   ```
- Check log with command `nano access_log /var/log/nginx/domain1.access.log custom`
+ Check log with command `nano access_log /var/log/nginx/domain1.access.log`
 
  **output:** 
  

@@ -1,33 +1,32 @@
-#Certbot LetsEncrypt SSL Certificates Installation
+# Certbot LetsEncrypt SSL Certificates Installation
+
 **Source:** [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04)
 
 Let’s Encrypt provides an accessible way to obtain TLS/SSL certificates, enabling encrypted HTTPS 
-on web servers. Certbot ensures the certificate is obtained and installed on Nginx, and automates the 
+on web servers. 
+
+Certbot ensures the certificate is obtained and installed on Nginx, and also handles automatically the 
 certificate renewal process.
 
 Install the Certbot software on your server `sudo apt install certbot python3-certbot-nginx`
 
-Ensure the `server_name` in the server block points to domain-name. Example:
+Ensure the `server_name` in the server block points to your domain-name. Example:
 ```
 ...
 server_name kendomain kendoc.com;
 ...
 ```
-reload nginx sudo `systemctl reload nginx`
+reload nginx `sudo systemctl reload nginx`
 
 Open Https traffic using command: `ufw allow 443`
 
 
-**Obtaining an SSL certifcate:**  
-```
-#This will obtain the certifcate. 
-# the `-d` is used to specify the domain names we’d like the certificate to be valid for. 
-#If it's your first time you will be prompted to enter an email address and agree to the terms of service.
-#follow the steps to complete the configuration. 
-sudo certbot --nginx -d example.com -d www.example.com
-```
+**Obtaining an SSL certifcate:** This will obtain the certifcate. the `-d` is used to specify the domain names we’d like
+the certificate to be valid for. If it's your first time you will be prompted to enter an email address and agree to 
+the terms of service. follow the steps to complete the configuration. 
+`sudo certbot --nginx -d example.com -d www.example.com`
 
-If that's successful you should get a congratulatory message like this:
+If that's successful you should see a congratulatory message like this:
 **Output:**
 ```
 IMPORTANT NOTES:
@@ -48,7 +47,9 @@ IMPORTANT NOTES:
 Certbot by default is programmatically set to run twice a day and automatically renew any certificate that’s 
 within thirty days of expiration. 
 
-Do a dry-run with `certbot` to simulate the renewal process. if you see no errors, then you are all set to go!.
+Do a dry-run with `certbot` to simulate the renewal process. `sudo certbot renew --dry-run` 
+
+if you see no errors, then you are all set to go!.
 
 **Output:**
 ```
